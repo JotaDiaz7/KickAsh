@@ -1,0 +1,40 @@
+header{
+    padding: 20px 10px;
+    border-bottom: 1px solid black;
+}
+
+.hp{
+    padding: 20px;
+}
+
+.hw{
+    min-width: 20%;
+}
+
+.imgWrap{
+    cursor: pointer;
+    box-shadow: 3px 4px 2px var(--fontColor);
+    width: 60px;
+    height: 60px;
+    border-radius: 99px;
+    background-color: var(--secondarColor);
+    overflow: hidden;
+}
+.imgWrap img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.idWrap{
+    margin-left: 20px;
+    font-size: 1.2em;
+}
+@media (min-width:768px){
+
+}
+@media (min-width:1200px){
+    header{
+        padding: 15px 0px;
+    }
+}

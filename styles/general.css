@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('alert.css');
+@import url('header.css');
+@import url('footer.css');
+:root {
+  --font: "Raleway";
+  --title: "Luckiest Guy";
+  --fontColor: #424242;
+  --mainColor:#dc8b9c ;
+  --secondarColor: #f9d22d;
+  --buttonColor: #d97c93;
+  --success: #4eca5c;
+  --error:#ff4e42;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: var(--font);
+  color: var(--fontColor);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 ,h5{
+  font-family: var(--title);
+  letter-spacing: 2px;
+}
+
+body{
+  background: linear-gradient(to bottom, var(--mainColor) 50%, var(--secondarColor) 95%);
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  /* border: 1px solid black; */
+}
+
+a{
+  text-decoration: none;
+}
+
+.fw{
+  font-weight: bold;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.d-n{
+  display: none;
+}
+
+/* Flexbox */
+.flex{
+  display: flex;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column{
+  flex-direction: column;
+}
+
+/* Inputs */
+.inputWrap{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  border: 1px solid var(--fontColor);
+  padding: 30px 10px 10px 10px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 1px 1px 2px var(--fontColor);
+}
+
+.inputWrap label{
+  position: absolute;
+  top: 0px;
+  font-size: 0.9em;
+}
+
+.inputWrap input{
+  width: 100%;
+  background: transparent !important;
+  border: none;
+  font-size: 1.1em;
+}
+
+input:focus{
+  border-color: var(--mainColor) !important;
+  outline: unset !important;
+}
+
+/* Botones */
+.button{
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 20px;
+  width: 100%;
+  font-size: 1em;
+  background-color: var(--buttonColor);
+  font-weight: bold;
+  border: none;
+  box-shadow: 3px 4px 2px var(--fontColor);
+}
+
+/* Checkbox */
+.checkWrap{
+  margin-bottom: 15px;
+  align-items: center;
+  position: relative;
+}
+.checkWrap input[type=checkbox]{
+  position: absolute;
+  opacity: 0;
+}
+.checkWrap label{
+  cursor: pointer;
+  z-index: 2;
+}
+.checkWrap label .check{
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--fontColor);
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: all 0.2s ease;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+}
+.checkWrap label .checked{
+  background-color: var(--secondarColor);
+  box-shadow: inset -2px -2px 4px rgba(255,255,255,0.5),
+  inset 2px 2px 4px rgba(0,0,0,0.2);
+}
+.checkWrap label a{
+  margin: 0px 5px;
+
+}
+@media (max-width:768px){
+  /*Para móvil*/
+  .d-ns{
+    display: none;
+  }
+}
+@media (max-width:1100px){
+    /*Para tablet y móvil*/
+    .d-nm{
+      display: none;
+    }
+}
+@media (min-width:768px){
+  .inputWrap{
+    padding: 30px 15px 10px 15px;
+
+  }
+  .inputWrap label{
+    font-size: 1.4em;
+  }
+  .inputWrap input{
+    font-size: 2em;
+  }
+  .button{
+    padding: 20px;
+    font-size: 1.5em;
+  }
+}
+@media (min-width:998px){
+  .inputWrap label{
+    font-size: 1em;
+  }
+  .inputWrap input{
+    font-size: 1.3em;
+  }
+  .button{
+    padding: 15px;
+    font-size: 1em;
+  }
+}
+
+@media (min-width:1200px){
+  #root {
+    max-width: 1200px;
+  }
+}
+@media (min-width:1600px){
+  #root {
+    max-width: 1500px;
+  }
+  .inputWrap label{
+    font-size: 1.2em;
+  }
+  .inputWrap input{
+    font-size: 1.8em;
+  }
+  .button{
+    font-size: 1.1em;
+  }
+}

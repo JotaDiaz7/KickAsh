@@ -1,0 +1,13 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Evitar reescritura de archivos estáticos
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Regla para páginas normales
+RewriteRule ^([a-zA-Z]+)?$ pages/$1.php [L,QSA]
+
+# Si nos da error 404 que nos redirija a nuestra página
+RewriteRule ^error/([a-zA-Z0-9%20\s]+)$ pages/error.php?error=$1 [L,QSA]
+ErrorDocument 404 /error

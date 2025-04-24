@@ -1,0 +1,54 @@
+.alert {
+    box-shadow: 1px 1px 2px var(--fontColor);
+    border-radius: 20px;
+    padding: 10px 15px;
+    min-width: 200px;
+    max-width: 85%;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    right: 15px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.alert span{
+    margin-left: 20px;
+}
+.displayAlert{
+    right: 15px;
+    opacity: 1;
+    z-index: 2;
+}
+
+.error{
+    background-color: var(--error);
+}
+
+.success{
+    background-color: var(--success);
+}
+@media (min-width: 768px) {
+    .alert{
+        bottom: 20px;
+        width: auto;
+        right: -300px;
+    }
+    .displayAlert{
+        right: 50px;
+    }
+}
+@media (min-width: 1000px) {
+    .alert{
+        bottom: 30px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .alert{
+        bottom: 100px;
+    }
+}

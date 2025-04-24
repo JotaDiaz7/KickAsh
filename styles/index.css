@@ -1,0 +1,105 @@
+main{
+    min-height: 90vh;
+    border-bottom: 1px solid black;
+    flex-direction: column;
+}
+
+.logoWrap{
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.logoWrap img{
+    width: 160px;
+}
+
+.imgWrap{
+    position: relative;
+}
+
+.formWrap{
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.formWrap form{
+    width: 90%;
+    transition: all 0.2s ease;
+}
+
+.formWrap form a{
+    color: var(--secondarColor);
+}
+
+h1{
+    position: absolute;
+    bottom: 0px;
+    left: -10px;
+    font-size: 3em;
+    color: var(--buttonColor);
+    text-shadow: 0px 0px 6px var(--fontColor), 1px 2px 3px var(--secondarColor);
+}
+
+h3{
+    font-size: 1.2em;
+    text-align: start;
+}
+
+.registerWrap{
+    text-align: center;
+}
+.registerWrap button{
+    margin-top: 30px;
+    font-size: 1em;
+}
+
+@media (min-width:768px){
+    .logoWrap img{
+        width: 300px;
+        left: 0px;
+    }
+    .formWrap{
+        margin-bottom: 0px;
+    }
+    .formWrap form{
+        width: 80%;
+    }
+    h1{
+        font-size: 5em;
+    }
+    h3{
+        font-size: 1.5em;
+    }
+    .registerWrap button{
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width:1000px){
+    main{
+        flex-direction: row;
+    }
+    .logoWrap{
+        width: 55%;
+    }
+    .formWrap{
+        width: 45%;
+    }
+    h3{
+        font-size: 1.2em;
+    }
+    .registerWrap button{
+        font-size: 1em;
+    }
+
+}
+
+@media (min-width:1600px){
+    h3{
+        font-size: 1.5em;
+    }
+    .registerWrap{
+        font-size: 1.1em;
+    }
+}
