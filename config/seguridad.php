@@ -1,24 +1,31 @@
 <?php
 
 if (isset($_SESSION["user"]) || isset($_COOKIE["user"])) {
-    $user = $_SESSION["user"] ?? json_decode($_COOKIE["user"], true);
-    $id = $user['id'];
-    $rol = $user['rol'];
+    $user = $_SESSION["user"] ?? (isset($_COOKIE["user"]) ? json_decode($_COOKIE["user"], true) : null);
+    $idUser = $user['id'];
+    $rolUser = $user['rol'];
 }
 
-function seguridad($sesion, $rolSeguridad, $rolUsuario)
+function seguridad(bool $requiereSesion, int $rolPermitido)
 {
-    //En caso de que no queramos que vean la página si no está logueado pondremos true en el primer parámetro
-    //Además, vamos a comprobar el rol para saber si puede estar en esta página
-    if($rolUsuario >= 1){
-        $location = "Location: /admin";
-    }else if($rolUsuario == 0){
-        $location = "Location: /cuenta";
-    }else{
-        $location = "Location: /";
+    $user = $_SESSION["user"] ?? (isset($_COOKIE["user"]) ? json_decode($_COOKIE["user"], true) : null);
+    $rol = $user['rol'] ?? -1;
+
+    // Si requiere sesión y no hay usuario logueado
+    if ($requiereSesion && $rol < 0) {
+        header("Location: /");
+        exit;
     }
-    if ($sesion && $rolSeguridad > $rolUsuario) {
-        header($location);
+
+    // Si hay sesión y no se requiere (páginas como login, register)
+    if (!$requiereSesion && $rol >= 0) {
+        header("Location: " . ($rol >= 1 ? "/admin" : "/cuenta"));
+        exit;
+    }
+
+    // Si el rol del usuario no es compatible con la página
+    if ($requiereSesion && ($rol >= 1 && $rolPermitido == 0 || $rol == 0 && $rolPermitido >= 1)) {
+        header("Location: " . ($rol >= 1 ? "/admin" : "/cuenta"));
         exit;
     }
 }

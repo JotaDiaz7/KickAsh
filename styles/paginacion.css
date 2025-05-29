@@ -1,0 +1,12 @@
+/*Paginación*/
+.paginacion{
+    margin: 20px 0px;
+}
+.paginacion a{
+    font-size: 1.2em;
+    margin: 0px 10px;
+}
+.currentPag{
+    color: var(--thirdColor);
+    font-weight: bold;
+}

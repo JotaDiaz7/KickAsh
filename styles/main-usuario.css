@@ -1,0 +1,21 @@
+main {
+    padding-bottom: 50px;
+}
+
+@media (min-width:768px) {
+    main {
+        height: 75vh;
+        padding-bottom: 0px;
+    }
+
+    .alert{
+        bottom:auto;
+    }
+}
+
+
+@media (min-width:1600px) {
+    main {
+        height: 80vh;
+    }
+}

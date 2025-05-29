@@ -1,4 +1,186 @@
-main{
-    min-height: 70vh;
-    border-bottom: 1px solid black;
+@import url('usuario.css');
+@import url('temp-cartera-reto.css');
+
+main {
+    transition: opacity 0.4s ease;
+    padding-bottom: 50px;
+    min-height: 75vh;
+}
+
+.mainWrap {
+    width: 95%;
+    max-width: 1100px;
+    height: 90%;
+    margin: 0px auto;
+    flex-direction: column;
+    padding-bottom: 50px;
+}
+
+.logoWrap img {
+    width: 200px;
+}
+
+.infoWrap .inputWrap,
+.infoWrap .buttonWrap {
+    margin-top: 20px;
+    margin: 0px auto;
+
+}
+
+.buttonWrap {
+    padding-top: 20px;
+}
+
+.mainWrap .infoWrap h1,
+.mainWrap .infoWrap p {
+    margin: 10px 0px;
+}
+
+/*Para incrustar plantillas*/
+.fade-out {
+    opacity: 0;
+}
+
+/*Para la imagen*/
+.hImg {
+    margin: 20px 0px;
+}
+
+.eImg {
+    margin: 30px 0px;
+}
+
+.imgWrap {
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background-color: var(--secondarColor);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.imgWrap label {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.imgWrap label img {
+    width: 100%;
+}
+
+/*Fechas*/
+.inputDates {
+    padding: 10px 0px;
+    justify-content: center;
+}
+
+.inputDates span {
+    color: var(--thirdColor);
+    font-weight: bold;
+}
+
+/*Search*/
+.searchWrap {
+    margin: 15px 20px;
+}
+
+@media (max-width:768px) {
+    .nameT {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (min-width:768px) {
+    main {
+        height: 75vh;
+        padding-bottom: 0px;
+    }
+
+    .mainWrap {
+        width: 100%;
+        height: 90%;
+        padding-bottom: 0px;
+    }
+
+    .logoWrap img {
+        width: 300px;
+    }
+
+    .mainWrap .infoWrap {
+        width: 90%;
+    }
+
+    .infoWrap p {
+        font-size: 1.2em;
+    }
+
+    .infoWrap .inputWrap,
+    .infoWrap .buttonWrap {
+        width: 450px;
+    }
+
+    .searchWrap {
+        margin: 15px 35px;
+    }
+
+}
+
+@media (min-width:1000px) {
+    .mainWrap {
+        flex-direction: row;
+    }
+
+    .mainWrap .logoWrap {
+        width: 45%;
+    }
+
+    .mainWrap .infoWrap {
+        width: 60%;
+    }
+
+    .infoWrap p {
+        font-size: 1em;
+    }
+
+    .logoWrap img {
+        width: 350px;
+    }
+
+    .inputDates {
+        justify-content: end;
+    }
+
+    .table .tbody {
+        height: 45vh;
+    }
+
+    .followers .tbody {
+        height: 60vh;
+    }
+
+
+}
+
+@media (min-width:1600px) {
+    main {
+        height: 80vh;
+    }
+
+    .logoWrap img {
+        width: 400px;
+    }
+
+    .imgWrap {
+        width: 400px;
+        height: 400px;
+    }
+
+    .table .tbody {
+        height: 55vh;
+    }
 }

@@ -1,0 +1,190 @@
+main {
+    padding: 10px;
+    position: relative;
+    min-height: 75vh;
+}
+
+h1 {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.infoWrap {
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding-bottom: 50px;
+
+}
+
+.infoWrap form {
+    width: 360px;
+}
+
+h3 {
+    text-align: center;
+}
+
+.imgWrap {
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background-color: var(--secondarColor);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.imgWrap label {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.imgWrap label img {
+    width: 100%;
+}
+
+.mainWrap {
+    flex-direction: column;
+}
+
+aside {
+    flex-direction: row;
+}
+
+aside a,
+.delete {
+    font-size: 1em;
+}
+
+aside ul li {
+    margin: 10px 0px;
+}
+
+.delete {
+    color: var(--error);
+}
+
+/*Delete*/
+.deleteWrap {
+    padding-top: 10px;
+    flex-direction: column;
+}
+
+.dWrap {
+    width: 95%;
+}
+
+.dWrap img {
+    width: 200px;
+}
+
+.dWrap p {
+    margin: 10px 0px;
+}
+
+.buttonWrap {
+    margin-top: 30px;
+}
+
+@media (min-width:768px) {
+    main {
+        min-height: 75vh;
+        padding: 20px;
+    }
+
+    .mainWrap {
+        gap: 50px;
+    }
+
+    .infoWrap form {
+        width: 500px;
+    }
+
+    .infoWrap {
+        padding-bottom: 0px;
+
+    }
+
+    .button {
+        width: auto;
+    }
+
+    .deleteWrap {
+        padding-top: 50px;
+    }
+
+    .dWrap {
+        width: 75%;
+    }
+
+    .dWrap p, .checkWrap label {
+        font-size: 1.2em;
+    }
+
+    .dWrap img {
+        width: 300px;
+    }
+}
+
+@media (min-width:1000px) {
+    main {
+        padding: 5px;
+    }
+
+    .mainWrap {
+        gap: 0px;
+
+        flex-direction: row;
+    }
+
+    aside {
+        flex-direction: column;
+    }
+
+    .infoWrap {
+        width: 85%;
+        gap: 0px;
+    }
+
+    .infoWrap form {
+        width: 400px;
+    }
+
+    .deleteWrap {
+        padding-top: 90px;
+        flex-direction: row;
+    }
+
+    .dWrap {
+        width: 50%;
+    }
+    .dWrap p, .checkWrap label {
+        font-size: 1em;
+    }
+    .dWrap img {
+        width: 350px;
+    }
+
+}
+
+@media (min-width:1600px) {
+    main {
+        height: 80vh;
+        padding: 30px;
+    }
+
+    .imgWrap {
+        width: 400px;
+        height: 400px;
+    }
+
+    .alert {
+        bottom: 100px;
+    }
+
+    .dWrap img {
+        width: 400px;
+    }
+}

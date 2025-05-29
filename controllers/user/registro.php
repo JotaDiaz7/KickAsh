@@ -6,7 +6,7 @@ if ((isset($_POST["user"]) && empty($_POST["user"]))
     || (isset($_POST["email"]) && empty($_POST["email"]))
     || (isset($_POST["password"]) && empty($_POST["password"]))
 ) {
-    echo json_encode("Por favor, complete todos los campos.");
+    echo json_encode(['error' => True, 'message' => "Por favor, completa todos los campos del formulario."]);
     exit;
 }
 
@@ -27,17 +27,17 @@ validarUser($id);
 $check = $model->comprobarId($con, $id);
 
 if ($check) {
-    echo json_encode("Usuario ya registrado.");
+    echo json_encode(['error' => True, 'message' => "Usuario ya registrado."]);
     exit;
 }
 
 //Comprobamos email, su formato y que no exista ya
 $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 validarEmail($email);
-$check = $model->comprobarEmail($con, $email, $id);
+$check = $model->comprobarEmail($con, $email);
 
 if ($check) {
-    echo json_encode("Email ya registrado.");
+    echo json_encode(['error' => True, 'message' => "Email ya registrado."]);
     exit;
 }
 
@@ -47,7 +47,7 @@ validarPassword($password);
 
 // Comprobamos que hayan aceptado los términos y condiciones
 if (empty($_POST["checkbox"])) {
-    echo json_encode("Por favor, acepta nuestra política de privacidad y de cookies.");
+    echo json_encode(['error' => True, 'message' => "Por favor, acepta nuestra política de privacidad y de cookies."]);
     exit;
 }
 
@@ -55,10 +55,15 @@ if (empty($_POST["checkbox"])) {
 $passwordEnc = password_hash($password, PASSWORD_DEFAULT);
 
 //Registramos al cliente
-$model->registro($con, $id, $email, $passwordEnc);
+$check = $model->registro($con, $id, $email, $passwordEnc);
+
+if ($check) {
+    echo json_encode(['error' => False, 'message' => "¡Enhorabuena te has registrado con éxito! Ya puedes iniciar sesión."]);
+    require_once '../../config/PHPMailer/mails/register.php';
+}
+
 
 // Cerrar la conexión
 $con = null;
 
-echo json_encode("ok");
 exit;

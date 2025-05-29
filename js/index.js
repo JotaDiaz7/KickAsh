@@ -1,49 +1,42 @@
-import { checkbox, alert, setData } from "./utils.js"
+import { checkbox, alert, setData, showPassword, footer, createTemp } from "./utils.js"
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
     buttons()
     checkbox()
-    login()
-    registro()
+    forms()
+    showPassword()
+    footer()
 })
-
 
 const buttons = () => {
     document.querySelectorAll(".toggleForm").forEach(button => {
-        button.onclick = e => {
-            e.preventDefault()
-            document.querySelectorAll("form").forEach(form => {
-                form.classList.contains("d-n") ? form.classList.remove("d-n") : form.classList.add("d-n")
-                form.reset()
-            } )
+        button.onclick = async () => {
+            let temp = button.getAttribute("data-temp")
+            await createTemp(`/templates/${temp}`, ".tempWrap")
+            buttons()
+            forms()
+            checkbox()
+            showPassword()
         }
     })
 }
 
-const login = () => {
-    const form = document.getElementById("login")
+const forms = () => {
+    const form = document.querySelector("form")
 
     form.onsubmit = async e => {
         e.preventDefault()
-        let result = await setData("/controllers/user/login.php", form)
-        if(result["redirect"]){
+        let url = form.getAttribute("data-url")
+        let result = await setData(`/controllers/user/${url}`, form)
+        if (result["redirect"]) {
             window.location.href = result["redirect"]
-        }else{
-            alert(true, result)
-        }
-    }
-}
-
-const registro = () => {
-    const form = document.getElementById("register")
-
-    form.onsubmit = async e => {
-        e.preventDefault()
-        let result = await setData("/controllers/user/registro.php", form)
-        if(result == "ok"){
-            alert(false, "Registrado")
-        }else{
-            alert(true, result)
+        } else if (!result['error']) {
+            alert(false, result['message'])
+            await createTemp(`/templates/login.php`, ".tempWrap")
+            forms()
+            buttons()
+        } else {
+            alert(result['error'], result['message'])
         }
     }
 }

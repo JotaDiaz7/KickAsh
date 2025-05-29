@@ -1,0 +1,220 @@
+.first {
+    padding: 0px 50px;
+    align-items: center;
+}
+
+.second {
+    padding: 20px 0px;
+    flex-direction: column;
+}
+
+.infoWrap {
+    padding: 0px 20px;
+    align-items: center;
+}
+
+.imgWrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 99px;
+    background-color: var(--secondarColor);
+    overflow: hidden;
+}
+
+.imgWrap img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.iconsWrap {
+    gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.iconWrap img {
+    width: 50px;
+    height: 50px;
+}
+
+.third {
+    margin-top: 0px;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cigWrap {
+    width: 90%;
+    margin: 0px auto;
+    box-shadow: 1px 1px 2px var(--fontColor);
+    border-radius: 20px;
+}
+
+.cigWrap .cigImg {
+    width: 200px;
+    height: 250px;
+}
+
+.cantWrap button img {
+    width: 50px;
+}
+
+#cantCig {
+    font-size: 3.5em;
+    transition: all 0.5s ease;
+}
+
+.amountWrap {
+    width: 100%;
+    flex-direction: column;
+}
+
+.stateWrap {
+    padding: 20px 0px;
+}
+
+.stateInfoWrap {
+    padding: 5px 75px;
+}
+
+.stateImg {
+    width: 150px;
+}
+
+.logrosWrap h3 {
+    margin-bottom: 10px;
+}
+
+.logrosWrap div {
+    padding: 0px 10px;
+    flex-wrap: wrap;
+}
+
+.logrosWrap img {
+    width: 50px;
+
+}
+
+.errorC {
+    color: var(--error);
+}
+
+.podium {
+    margin-top: 25px;
+}
+
+.podium .tbody {
+    height: 40vh;
+}
+
+.tdF {
+    flex: 2;
+}
+
+@media (min-width:768px) {
+    .second {
+        padding: 10px 0px;
+        flex-direction: row;
+    }
+
+    .iconsWrap {
+        margin-top: 0px;
+    }
+
+    .third {
+        margin-top: 40px;
+        height: 35vh;
+        gap: 0px;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .cigWrap {
+        width: 60%;
+        margin: 0px;
+    }
+
+    .amountWrap {
+        width: 70%;
+        flex-direction: row;
+    }
+
+    .infoWrap {
+        padding: 0px 15px;
+    }
+
+    .logrosWrap {
+        padding: 20px 0px;
+    }
+
+    .logrosWrap div {
+        padding: 0px;
+        max-width: 250px;
+    }
+
+    .podium .tbody {
+        height: 30vh;
+    }
+
+    .tdF {
+        flex: 4;
+    }
+
+    .stateInfoWrap {
+        padding: 5px 20px;
+    }
+}
+
+@media (min-width:1000px) {
+    .third {
+        margin-top: 10px;
+        height: 50vh;
+    }
+
+    .cigWrap {
+        width: 40%;
+    }
+
+    .amountWrap {
+        width: 30%;
+        flex-direction: column;
+    }
+
+    .logrosWrap {
+        padding: 0;
+    }
+
+    .logrosWrap div {
+        max-width: 100%;
+    }
+
+    .imgWrap {
+        width: 70px;
+        height: 70px;
+    }
+
+    .tdF {
+        flex: 5;
+    }
+
+}
+
+@media (min-width:1600px) {
+    .third {
+        margin-top: 40px;
+    }
+
+    .imgWrap {
+        width: 90px;
+        height: 90px;
+    }
+
+    .logrosWrap {
+        padding: 20px;
+    }
+
+    .podium .tbody {
+        height: 40vh !important;
+    }
+}

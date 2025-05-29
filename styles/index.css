@@ -1,105 +1,136 @@
-main{
-    min-height: 90vh;
-    border-bottom: 1px solid black;
+body {
+    background-color: var(--secondarColor) !important;
+}
+
+main {
     flex-direction: column;
+    min-height: 90vh;
 }
 
-.logoWrap{
+.logoWrap {
     width: 100%;
-    margin-bottom: 50px;
+    margin: 80px 0px;
 }
 
-.logoWrap img{
-    width: 160px;
+.logoWrap img {
+    width: 250px;
 }
 
-.imgWrap{
-    position: relative;
-}
-
-.formWrap{
-    position: relative;
+.formWrap {
     width: 100%;
     margin-bottom: 40px;
 }
 
-.formWrap form{
+.formWrap .tempWrap{
     width: 90%;
+}
+
+.formWrap form {
+    width: 100%;
     transition: all 0.2s ease;
+    margin-bottom: 20px;
 }
 
-.formWrap form a{
-    color: var(--secondarColor);
+.formWrap form a {
+    color: var(--thirdColor);
 }
 
-h1{
-    position: absolute;
-    bottom: 0px;
-    left: -10px;
-    font-size: 3em;
-    color: var(--buttonColor);
-    text-shadow: 0px 0px 6px var(--fontColor), 1px 2px 3px var(--secondarColor);
-}
-
-h3{
+h3 {
     font-size: 1.2em;
     text-align: start;
 }
 
-.registerWrap{
-    text-align: center;
-}
-.registerWrap button{
-    margin-top: 30px;
+.toggleWrap button {
+    margin-top: 10px;
     font-size: 1em;
 }
 
-@media (min-width:768px){
-    .logoWrap img{
+p{
+    margin: 10px 0px;
+}
+
+@media (min-width:768px) {
+    main {
+        min-height: 85vh;
+    }
+
+    .logoWrap img {
         width: 300px;
         left: 0px;
     }
-    .formWrap{
+
+    .formWrap {
         margin-bottom: 0px;
     }
-    .formWrap form{
-        width: 80%;
+
+    .formWrap .tempWrap {
+        width: 60%;
     }
-    h1{
-        font-size: 5em;
-    }
-    h3{
+
+    h3 {
         font-size: 1.5em;
     }
-    .registerWrap button{
+
+    .toggleWrap button {
         font-size: 1.3em;
     }
+
+    .alert {
+        bottom: -60px;
+    }
+
 }
 
-@media (min-width:1000px){
-    main{
+@media (min-width:1000px) {
+    main {
         flex-direction: row;
     }
-    .logoWrap{
+
+    .logoWrap {
         width: 55%;
+        margin: 0px;
     }
-    .formWrap{
+
+    .formWrap {
         width: 45%;
     }
-    h3{
+
+    .formWrap .tempWrap {
+        width: 430px;
+    }
+
+    h3 {
         font-size: 1.2em;
     }
-    .registerWrap button{
+
+    .toggleWrap button {
         font-size: 1em;
     }
 
+    .logoWrap img {
+        width: 400px;
+    }
+
+    .alert {
+        bottom: 100px;
+    }
+
 }
 
-@media (min-width:1600px){
-    h3{
+@media (min-width:1600px) {
+    main {
+        height: 90vh;
+    }
+
+    h3 {
         font-size: 1.5em;
     }
-    .registerWrap{
+
+    .toggleWrap button {
         font-size: 1.1em;
+    }
+
+    .logoWrap img {
+        width: 500px;
     }
 }

@@ -1,4 +1,251 @@
-main{
-    min-height: 70vh;
-    border-bottom: 1px solid black;
+@import url('popup.css');
+
+.menu {
+    padding: 20px;
+}
+
+main {
+    min-height: 80vh;
+}
+
+.buttonsWrap {
+    text-transform: uppercase;
+}
+
+.selec {
+    border-bottom: 3px solid var(--thirdColor);
+}
+
+.table .tbody .tr {
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.table .tbody .tr:hover {
+    scale: 1.1;
+}
+
+.retos .imgT {
+    background-color: transparent;
+}
+
+.round {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 99px;
+    background-color: var(--error);
+}
+
+.activo {
+    background-color: var(--success) !important;
+}
+
+/*User*/
+.second {
+    padding: 20px 0px;
+    flex-direction: column;
+}
+
+.infoWrap {
+    padding: 0px 20px;
+    align-items: center;
+}
+
+.imgWrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 99px;
+    background-color: var(--secondarColor);
+    overflow: hidden;
+}
+
+.imgWrap img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.iconsWrap {
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.iconWrap img {
+    width: 50px;
+    height: 50px;
+}
+
+.genWrap {
+    padding: 20px 10px;
+}
+
+.inputWrap {
+    min-width: 90%;
+}
+
+.inputWrap span {
+    position: absolute;
+    top: 5px;
+}
+
+.inputWrap p {
+    font-size: 1.2em;
+}
+
+.desc {
+    color: var(--error);
+}
+
+.act {
+    color: var(--success);
+}
+
+.changeWrap {
+    padding: 10px;
+    font-size: 1em;
+}
+
+.logrosWrap img {
+    width: 50px;
+
+}
+
+/*Registro reto*/
+.dataWrap {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.imgRetoWrap,
+.inputsRetoWrap {
+    width: 100%;
+    position: relative;
+}
+
+.imgRetoWrap label {
+    font-size: 0.9em;
+}
+
+#retoFrom .button {
+    width: 300px;
+}
+
+#img {
+    width: 200px;
+    cursor: pointer;
+}
+
+
+
+@media (min-width:768px) {
+    main {
+        height: 75vh;
+        min-height: 75vh;
+
+    }
+
+    .second {
+        padding: 10px 0px;
+        flex-direction: row;
+    }
+
+    .inputWrap {
+        min-width: 200px;
+    }
+
+    .divsWrap {
+        gap: 20px;
+    }
+
+    .iconsWrap {
+        margin-top: 0px;
+    }
+
+    .changeWrap {
+        padding: 10px 20px;
+    }
+
+    #img {
+        width: 300px;
+    }
+
+    #retoFrom .button {
+        width: 400px;
+    }
+
+    .imgRetoWrap label {
+        font-size: 1.4em;
+    }
+
+    .alert {
+        bottom: 95%;
+    }
+
+    .mainDivsWrap {
+        height: 50vh;
+    }
+}
+
+@media (min-width:1000px) {
+    .menu {
+        padding: 20px 0px;
+    }
+
+    .divsWrap {
+        gap: 30px;
+    }
+
+    .imgWrap {
+        width: 80px;
+        height: 80px;
+    }
+
+    .changeWrap {
+        padding: 0px;
+    }
+
+    #retoFrom {
+        min-height: 60vh;
+    }
+
+    .imgRetoWrap {
+        width: 40%;
+    }
+
+    .inputsRetoWrap {
+        width: 60%;
+    }
+
+    .dataWrap {
+        flex-direction: row;
+        gap: 0px;
+    }
+
+    .imgRetoWrap label {
+        font-size: 1em;
+    }
+
+    .alert {
+        bottom: 80px;
+    }
+}
+
+@media (min-width:1600px) {
+    main {
+        height: 80vh;
+    }
+
+    .imgWrap {
+        width: 90px;
+        height: 90px;
+    }
+
+    #img {
+        width: 350px;
+    }
+
+    .imgRetoWrap label {
+        font-size: 1.2em;
+    }
 }

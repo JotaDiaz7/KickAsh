@@ -3,7 +3,7 @@ session_start();
 
 //Vamos a comprobar que todos los campos estén completados
 if ((isset($_POST["user"]) && empty($_POST["user"])) || (isset($_POST["password"]) && empty($_POST["password"]))) {
-    echo json_encode("Por favor, complete todos los campos.");
+    echo json_encode(['error' => True, 'message' => "Por favor, completa todos los campos del formulario."]);
     exit;
 }
 
@@ -27,10 +27,12 @@ $result = $model->login($con, $user, $password);
 
 if ($result) {
     $user = $_SESSION["user"] ?? (isset($_COOKIE["user"]) ? json_decode($_COOKIE["user"], true) : null);
+    //La cookie dura un mes
+    if(isset($_POST['checkbox']) && !empty($_POST['checkbox'])) setcookie("user", json_encode($user), time() + 30 * 24 * 60 * 60, '/');
 
     echo json_encode(["redirect" => $user['rol'] >= 1 ? "/admin" : "/cuenta"]);
 } else {
-    echo json_encode("Usuario o contraseña incorrecta.");
+    echo json_encode(['error' => True, 'message' => "Usuario o contraseña incorrecta."]);
 }
 
 // Cerrar la conexión
