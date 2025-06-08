@@ -1,5 +1,6 @@
 @import url('usuario.css');
 @import url('temp-cartera-reto.css');
+@import url('popup.css');
 
 main {
     transition: opacity 0.4s ease;
@@ -12,7 +13,6 @@ main {
     max-width: 1100px;
     height: 90%;
     margin: 0px auto;
-    flex-direction: column;
     padding-bottom: 50px;
 }
 
@@ -20,11 +20,14 @@ main {
     width: 200px;
 }
 
+.infoWrap{
+    width: 100%;
+}
+
 .infoWrap .inputWrap,
 .infoWrap .buttonWrap {
     margin-top: 20px;
     margin: 0px auto;
-
 }
 
 .buttonWrap {
@@ -81,8 +84,7 @@ main {
     font-weight: bold;
 }
 
-/*Search*/
-.searchWrap {
+.menuWrap {
     margin: 15px 20px;
 }
 
@@ -124,17 +126,13 @@ main {
         width: 450px;
     }
 
-    .searchWrap {
-        margin: 15px 35px;
+    .menuWrap {
+        margin: 15px 40px;
     }
 
 }
 
 @media (min-width:1000px) {
-    .mainWrap {
-        flex-direction: row;
-    }
-
     .mainWrap .logoWrap {
         width: 45%;
     }
@@ -163,6 +161,9 @@ main {
         height: 60vh;
     }
 
+    .menuWrap {
+        margin: 15px 60px;
+    }
 
 }
 

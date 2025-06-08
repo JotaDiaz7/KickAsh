@@ -1,16 +1,13 @@
 .first {
     padding: 0px 50px;
-    align-items: center;
 }
 
 .second {
     padding: 20px 0px;
-    flex-direction: column;
 }
 
 .infoWrap {
     padding: 0px 20px;
-    align-items: center;
 }
 
 .imgWrap {
@@ -28,7 +25,6 @@
 }
 
 .iconsWrap {
-    gap: 20px;
     justify-content: center;
     margin-top: 10px;
 }
@@ -40,7 +36,6 @@
 
 .third {
     margin-top: 0px;
-    flex-direction: column;
     gap: 30px;
 }
 
@@ -67,7 +62,6 @@
 
 .amountWrap {
     width: 100%;
-    flex-direction: column;
 }
 
 .stateWrap {
@@ -88,7 +82,6 @@
 
 .logrosWrap div {
     padding: 0px 10px;
-    flex-wrap: wrap;
 }
 
 .logrosWrap img {
@@ -115,7 +108,6 @@
 @media (min-width:768px) {
     .second {
         padding: 10px 0px;
-        flex-direction: row;
     }
 
     .iconsWrap {
@@ -126,7 +118,6 @@
         margin-top: 40px;
         height: 35vh;
         gap: 0px;
-        flex-direction: row;
         justify-content: space-around;
     }
 
@@ -137,7 +128,6 @@
 
     .amountWrap {
         width: 70%;
-        flex-direction: row;
     }
 
     .infoWrap {
@@ -178,7 +168,6 @@
 
     .amountWrap {
         width: 30%;
-        flex-direction: column;
     }
 
     .logrosWrap {

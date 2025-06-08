@@ -1,7 +1,7 @@
 <div class="tempImgWrap center">
-    <img src="/media/logo/main.png" alt="Cartera logo" title="Cartera logo">
+    <img src="/media/logo/cartera.png" alt="Cartera logo" title="Cartera logo">
 </div>
-<div class="tempWrap">
+<div class="tempWrap r-cm">
     <?php if ($data['total'] >= 1) { ?>
         <h2>¡Increíble!</h2>
         <p>Desde el <?= $data['date_r'] ?>, llevas un ahorro diario de <span class="fw"><?= $data['avg'] ?></span>€.</p>

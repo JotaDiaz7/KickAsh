@@ -1,6 +1,6 @@
-<div class="second flex">
+<div class="second flex c-rm">
     <form id="retoFrom" class="relative flex column between" data-controller="/controllers/retos/registro.php">
-        <div class="flex dataWrap">
+        <div class="flex dataWrap c-r">
             <div class="imgRetoWrap center">
                 <label for="imgInput" class="flex column">
                     Imagen
@@ -8,7 +8,7 @@
                 </label>
                 <input type="file" id="imgInput" name="img" aria-label="Archivo" class="hidden inputImg">
             </div>
-            <div class="flex wrap  around inputsRetoWrap">
+            <div class="flex wrap  around inputsRetoWrap relative">
                 <div class="inputWrap">
                     <label for="name">Nombre</label>
                     <input type="text" name="name" id="name" />
@@ -26,7 +26,7 @@
                     <input type="text" name="ncigs" id="ncigs" maxlength="3" placeholder="-" />
                 </div>
                 <div class="inputWrap">
-                    <label for="follow">Seguidores</label>
+                    <label for="follow">Seguidos</label>
                     <input type="text" name="follow" id="follow" maxlength="3" placeholder="-" />
                 </div>
 

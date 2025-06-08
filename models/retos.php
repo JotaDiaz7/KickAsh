@@ -94,24 +94,24 @@ class RetosModel
 
     public function getRetosByRachaUser($con, $user, $racha)
     {
-        $sql = "SELECT * FROM retos 
-            WHERE rachas <= :racha 
-            AND activo = 1 
-            AND id NOT IN (
-                SELECT reto FROM logros WHERE user = :user
-            ) LIMIT 1";
+        $sql = "SELECT r.* FROM retos r
+            LEFT JOIN logros l ON r.id = l.reto AND l.user = :user
+            WHERE r.rachas <= :racha 
+              AND r.activo = 1 
+              AND l.reto IS NULL
+            LIMIT 1";
         try {
             $stmt = $con->prepare($sql);
             $stmt->execute([':racha' => $racha, ':user' => $user]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            echo json_encode("Exceptdion: " . $e->getMessage());
+            echo json_encode("Exception: " . $e->getMessage());
             exit;
         }
     }
 
     public function checkCigsInRacha($con, $user, $rachas, $cigs)
-    {//Me devuelve true si no se ha fumado más cigarrillos de los permitidos en el reto
+    { //Me devuelve true si no se ha fumado más cigarrillos de los permitidos en el reto
         $sql = "SELECT COUNT(*) as total 
             FROM (
                 SELECT num_cig 
@@ -127,9 +127,8 @@ class RetosModel
             $stmt->bindValue(':rachas', (int)$rachas, PDO::PARAM_INT);
             $stmt->bindValue(':cigs', (int)$cigs, PDO::PARAM_INT);
             $stmt->execute();
-            
+
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            echo $result['total'] . " cigarrillos:".$cigs;
             return $result['total'] == 0;
         } catch (PDOException $e) {
             echo json_encode("Exception: " . $e->getMessage());
@@ -220,6 +219,40 @@ class RetosModel
         try {
             $stmt = $con->prepare($sql);
             $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+        } catch (PDOException $e) {
+            echo json_encode("Exception: " . $e->getMessage());
+            exit;
+        }
+    }
+
+    public function getRetosNoUser($con, $user)
+    {
+        $sql = "SELECT * FROM retos r
+            LEFT JOIN logros l ON r.id = l.reto AND l.user = :user
+            WHERE l.reto IS NULL AND r.activo = 1";
+        try {
+            $stmt = $con->prepare($sql);
+            $stmt->execute([':user' => $user]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo json_encode("Exception: " . $e->getMessage());
+            exit;
+        }
+    }
+
+    public function countRetosUser($con, $user)
+    {
+        $sql = "SELECT COUNT(*) as total
+            FROM retos r
+            WHERE r.id NOT IN (
+                SELECT reto
+                FROM logros
+                WHERE user = :user
+            )";
+        try {
+            $stmt = $con->prepare($sql);
+            $stmt->execute([':user' => $user]);
             return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
         } catch (PDOException $e) {
             echo json_encode("Exception: " . $e->getMessage());

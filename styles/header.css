@@ -32,6 +32,29 @@ header{
 .icon{
     width: 30px;
 }
+
+.retosH {
+  animation: parpadeo 8s ease-in-out infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+}
+
 @media (min-width:768px){
 
 }

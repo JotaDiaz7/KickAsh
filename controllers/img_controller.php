@@ -33,9 +33,9 @@ if ($isUploadedFile && !empty($imgTmpName)) {
     }
 
     // Validar tamaño
-    $maxSize = 300 * 1024; // 200 KB en bytes
+    $maxSize = 1000 * 1024; // 200 KB en bytes
     if ($imgSize > $maxSize) {
-        echo json_encode(['error' => True, 'message' => "El tamaño de la imagen no puede exceder de los 300kB."]);
+        echo json_encode(['error' => True, 'message' => "El tamaño de la imagen no puede exceder de los 500kB."]);
         exit;
     }
 }

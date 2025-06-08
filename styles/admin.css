@@ -8,14 +8,6 @@ main {
     min-height: 80vh;
 }
 
-.buttonsWrap {
-    text-transform: uppercase;
-}
-
-.selec {
-    border-bottom: 3px solid var(--thirdColor);
-}
-
 .table .tbody .tr {
     cursor: pointer;
     transition: all 0.5s ease;
@@ -44,12 +36,10 @@ main {
 /*User*/
 .second {
     padding: 20px 0px;
-    flex-direction: column;
 }
 
 .infoWrap {
     padding: 0px 20px;
-    align-items: center;
 }
 
 .imgWrap {
@@ -113,14 +103,12 @@ main {
 
 /*Registro reto*/
 .dataWrap {
-    flex-direction: column;
     gap: 10px;
 }
 
 .imgRetoWrap,
 .inputsRetoWrap {
     width: 100%;
-    position: relative;
 }
 
 .imgRetoWrap label {
@@ -136,18 +124,17 @@ main {
     cursor: pointer;
 }
 
-
+.bWrapper {
+    padding: 25px 15px;
+}
 
 @media (min-width:768px) {
     main {
-        height: 75vh;
         min-height: 75vh;
-
     }
 
     .second {
         padding: 10px 0px;
-        flex-direction: row;
     }
 
     .inputWrap {
@@ -185,6 +172,11 @@ main {
     .mainDivsWrap {
         height: 50vh;
     }
+
+    .bWrapper {
+        padding: 25px;
+    }
+
 }
 
 @media (min-width:1000px) {
@@ -218,7 +210,6 @@ main {
     }
 
     .dataWrap {
-        flex-direction: row;
         gap: 0px;
     }
 
@@ -227,7 +218,11 @@ main {
     }
 
     .alert {
-        bottom: 80px;
+        bottom: 150px;
+    }
+
+    .bWrapper {
+        padding: 0px;
     }
 }
 

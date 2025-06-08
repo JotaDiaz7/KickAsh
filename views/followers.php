@@ -1,4 +1,8 @@
-<div class="flex end">
+<div class="flex between alignCenter wrap g2 menuWrap">
+    <div class="buttonsWrap flex g2">
+        <a href="?followers" class="fw <?= isset($_GET['followers']) ? 'selec' : '' ?>">Seguidores</a>
+        <a href="?follows" class="fw <?= isset($_GET['follows']) ? 'selec' : '' ?>">Seguidos</a>
+    </div>
     <div class="searchWrap">
         <input type="text" name="search" id="search" placeholder="Buscar usuario" data-url="/controllers/followers/search.php" data-type="follower"/>
     </div>

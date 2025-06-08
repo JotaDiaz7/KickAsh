@@ -13,12 +13,13 @@ seguridad(false, -1)
     <?php include_once './structure/head.php' ?>
     <link rel="stylesheet" href="/styles/index.css">
     <script type="module" src="/js/index.js"></script>
+    <meta name="robots" content="index, follow">
     <title>KickAsh</title>
 </head>
 
 <body>
     <section id="root">
-        <main class="flex">
+        <main class="flex c-r">
             <div class="logoWrap center column">
                 <div class="imgWrap relative">
                     <img src="./media/logo/mainLogo.svg" alt="Logo KiskAsh" title="Logo KiskAsh" />

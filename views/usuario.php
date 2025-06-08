@@ -15,7 +15,7 @@ $followers = $modelF->countFollowers($con, $id);
 $follows = $modelF->countFollows($con, $id);
 
 if (!$check) { ?>
-    <div class="first flex between">
+    <div class="first flex between alignCenter">
         <h1><?= $id ?></h1>
         <button class="buttonFollow buttonF center" data-id="<?= $id ?>" data-follow="<?= $follow ? 0 : 1 ?>">
             <?= $follow ? 'Dejar de seguir' : 'Seguir' ?>
@@ -29,8 +29,8 @@ if (isset($_GET['followers'])) {
     getFollows($con, $id);
 } else {
 ?>
-    <div class="second flex between">
-        <div class="infoWrap flex g2">
+    <div class="second flex between c-rm">
+        <div class="infoWrap flex between g2 alignCenter">
             <?php if (!$check) { ?>
                 <div class="imgWrap">
                     <img src="<?= !empty($data['img']) ? '/media/users/' . $data['img'] : '/media/logo/main.svg'; ?>" alt="Imagen usuario" title="Imagen usuario">
@@ -45,7 +45,7 @@ if (isset($_GET['followers'])) {
                             <p>seguidores</p>
                         </div>
                     </a>
-                    <a <?= $check ? 'href="?follows"' : '' ?>  title="Enlace a los seguidos">
+                    <a <?= $check ? 'href="?follows"' : '' ?> title="Enlace a los seguidos">
                         <div>
                             <p id="follows" class="tc"><?= $follows ?? 0 ?></p>
                             <p>seguidos</p>
@@ -53,8 +53,9 @@ if (isset($_GET['followers'])) {
                     </a>
                 </div>
             </div>
+
         </div>
-        <div class="iconsWrap flex">
+        <div class="iconsWrap flex g2">
             <a href="/cuenta?podium" class="iconWrap center" alt="Enlace al podium" title="Enlace al podium">
                 <div>
                     <p class="tc"><?= $podium ?></p>
@@ -84,8 +85,10 @@ if (isset($_GET['followers'])) {
         getHist($con, $id, $_GET['historico']);
     } else if (isset($_GET['podium'])) {
         getPodium($con, $userId);
+    } else if (isset($_GET['retos'])) {
+        getRetosNoUser($con, $userId);
     } else { ?>
-        <div class="third flex wrap">
+        <div class="third flex wrap c-rm">
             <?php
             alert(null, '');
             if ($check && isset($_GET['cartera'])) {
@@ -109,12 +112,12 @@ if (isset($_GET['followers'])) {
                         <?php } ?>
                     </div>
                 </div>
-                <div class="amountWrap flex between">
+                <div class="amountWrap flex between c-r-c">
                     <?php calculadora($con, $id);
                     if (!empty($logros)) { ?>
                         <div class="logrosWrap">
                             <h3 class="tc">Logros</h3>
-                            <div class=" center g1">
+                            <div class="wrap center g1">
                                 <?php foreach ($logros as $logro) { ?>
                                     <a href="?reto=<?= $logro['id'] ?>">
                                         <img src="/media/retos/<?= $logro['img'] ?>" alt="Logro <?= $logro['name'] ?>" title="Logro <?= $logro['name'] ?>" class="retoImg">
@@ -127,5 +130,6 @@ if (isset($_GET['followers'])) {
             <?php }
             ?>
         </div>
-<?php }
+<?php
+    }
 } ?>

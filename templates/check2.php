@@ -1,10 +1,10 @@
-<div class="mainWrap center">
+<div class="mainWrap c-r center">
     <div class="logoWrap center">
-        <img src="/media/logo/main.svg" alt="Happy logo" title="Happy logo">
+        <img src="/media/logo/check2.png" alt="Question logo" title="Question logo">
     </div>
     <div class="infoWrap ">
         <h1>Dos preguntas más...</h1>
-        <form id="checkForm" data-controller="infoCig">
+        <form data-url="/controllers/user/infoCig.php">
             <p>Cuando compras tabaco, ¿cuánto dinero sueles gastar en cada compra? (ya sea en paquetes, cartones, etc.)</p>
             <div class="inputWrap">
                 <label for="precio">Precio</label>
@@ -17,6 +17,11 @@
                 <input type="text" name="cigs" id="cigs" maxlength="3" />
             </div>
             <div class="buttonWrap">
+                <div class="loading-dots d-n">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <input type="submit" class="button" value="Guardar y continuar" />
             </div>
         </form>

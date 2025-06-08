@@ -1,6 +1,10 @@
-<div class="flex end">
+<div class="flex between alignCenter wrap g2 menuWrap">
+    <div class="buttonsWrap flex g2">
+        <a href="?followers" class="fw <?= isset($_GET['followers']) ? 'selec' : '' ?>">Seguidores</a>
+        <a href="?follows" class="fw <?= isset($_GET['follows']) ? 'selec' : '' ?>">Seguidos</a>
+    </div>
     <div class="searchWrap">
-        <input type="text" name="search" id="search" placeholder="Buscar usuario" data-url="/controllers/followers/search.php" data-type="follows"/>
+        <input type="text" name="search" id="search" placeholder="Buscar usuario" data-url="/controllers/followers/search.php" data-type="follows" />
     </div>
 </div>
 <div class="table followers">
@@ -11,7 +15,7 @@
                     <span class="imgT">
                         <img src="<?= isset($user['img']) && !empty($user['img']) ? '/media/users/' . $user['img'] : '/media/logo/main.svg' ?>" alt="Imagen usuario" title="Imagen usuario">
                     </span>
-                    <span  class="nameT"><?= $user['name'] ?></span>
+                    <span class="nameT"><?= $user['name'] ?></span>
 
                 </a>
                 <div class="td flex end">

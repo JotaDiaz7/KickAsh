@@ -9,6 +9,12 @@
     transition: all 0.25s ease;
 }
 
+.confeti{
+    background-image: 
+        url('/media/icons/confeti.gif'),
+        linear-gradient(#00000069, #00000069) !important;
+}
+
 .showPop {
     z-index: 5 !important;
     opacity: 1 !important;

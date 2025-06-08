@@ -7,7 +7,9 @@
         <div class="th">Activo</div>
     </div>
     <div class="tbody">
-        <?php foreach ($data as $user) { ?>
+        <?php foreach ($data as $user) { 
+            $podium = $model->getUserPodiumPosition($con, $user['id']);
+            ?>
             <a class="tr " href="?user=<?= $user['id'] ?>">
                 <div class="td center">
                     <span class="imgT">
@@ -17,7 +19,8 @@
                 <div class="td center">
                     <?= $user['id'] ?>
                 </div>
-                <div class="td d-ns">
+                <div class="td d-ns tc">
+                    <?= $podium ?>
                 </div>
                 <div class="td center">
                     <span><?= $user['rol'] == 0 ? 'Usuario' : 'Administrador' ?></span>

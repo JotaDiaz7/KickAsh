@@ -14,6 +14,7 @@ seguridad(true, 1);
     <?php include_once '../structure/head.php' ?>
     <link rel="stylesheet" href="/styles/admin.css">
     <script type="module" src="/js/admin.js"></script>
+    <meta name="robots" content="noindex, nofollow">
     <title>KickAsh</title>
 </head>
 

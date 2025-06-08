@@ -1,34 +1,25 @@
-import { popup, changeImgInput, setData, alert, footer, search } from "./utils.js"
+import { popup, changeImgInput, setData, alert, footer, search , forms} from "./utils.js"
 
 document.addEventListener("DOMContentLoaded", function () {
     popup()
-    forms()
+    forms(results)
     changeImgInput()
     footer()
     closeAlert()
     search(printSearch)
 })
 
-const forms = () => {
-    const form = document.querySelector("form")
-
-    if (form) {
-        const data = form.getAttribute("data-controller")
-        form.onsubmit = async e => {
-            e.preventDefault()
-            let result = await setData(data, form)
-            if (result['redirect']) {
-                window.location.href = result["redirect"]
-            } else {
-                alert(result['error'], result['message'])
-            }
-        }
+const results = (url, form, result) => {
+    if (result['redirect']) {
+        window.location.href = result["redirect"]
+    } else {
+        alert(result['error'], result['message'])
     }
 }
 
 const closeAlert = () => {
     const alert = document.getElementById("alert")
-    if(alert) alert.onclick = () => alert.classList.remove("displayAlert")
+    if (alert) alert.onclick = () => alert.classList.remove("displayAlert")
 }
 
 const printSearch = (data) => {
@@ -39,7 +30,7 @@ const printSearch = (data) => {
             <a class="tr" href="?user=${item['id']}">
                 <div class="td">
                     <span class="imgT">
-                        <img src="${item['img']==null ? '/media/logo/main.svg' : '/media/users/'+item['img']}" alt="Imagen usuario" title="Imagen usuario">
+                        <img src="${item['img'] == null ? '/media/logo/main.svg' : '/media/users/' + item['img']}" alt="Imagen usuario" title="Imagen usuario">
                     </span>
                 </div>
                 <div class="td">
@@ -48,7 +39,7 @@ const printSearch = (data) => {
                 <div class="td d-ns">
                 </div>
                 <div class="td">
-                    <span>${item['rol']==0 ? 'Usuario' : 'Administrador'}</span>
+                    <span>${item['rol'] == 0 ? 'Usuario' : 'Administrador'}</span>
                 </div>
                 <div class="td">
                     <span class="round ${item['activo'] ? 'activo' : ''}"></span>

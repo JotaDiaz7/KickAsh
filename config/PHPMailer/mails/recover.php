@@ -25,17 +25,17 @@ $body = '<html>
                     <tr>
                         <td style="text-align: center;">
                             <a href="https://www.facebook.com/profile.php?id=61562944147734&locale=es_ES">
-                                <img width="40px" src="https://descalcitos.es/pictures/facebook.PNG">
+                                <img width="40px" src="https://kickash.ovh/media/icons/facebook.PNG">
                             </a>
                         </td>
                         <td style="text-align: center;">
-                            <a href="https://www.instagram.com/descalcitos_calzado/">
-                                <img width="40px" src="https://descalcitos.es/pictures/instagram.PNG">
+                            <a href="https://www.instagram.com/kickash/">
+                                <img width="40px" src="https://kickash.ovh/media/icons/instagram.PNG" alt="Instagram logo" title="Instagram logo">
                             </a>
                         </td>
                         <td style="text-align: center;">
                             <a href="#">
-                                <img width="40px" src="https://descalcitos.es/pictures/tiktok.PNG">
+                                <img width="40px" src="https://kickash.ovh/media/icons/tiktok.PNG">
                             </a>
                         </td>
                     </tr>

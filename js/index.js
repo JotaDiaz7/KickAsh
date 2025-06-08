@@ -1,4 +1,4 @@
-import { checkbox, alert, setData, showPassword, footer, createTemp } from "./utils.js"
+import { checkbox, alert, forms, showPassword, footer, createTemp } from "./utils.js"
 
 document.addEventListener("DOMContentLoaded", function () {
     buttons()
@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     forms()
     showPassword()
     footer()
+    forms(results)
 })
 
 const buttons = () => {
@@ -14,29 +15,22 @@ const buttons = () => {
             let temp = button.getAttribute("data-temp")
             await createTemp(`/templates/${temp}`, ".tempWrap")
             buttons()
-            forms()
+            forms(results)
             checkbox()
             showPassword()
         }
     })
 }
 
-const forms = () => {
-    const form = document.querySelector("form")
-
-    form.onsubmit = async e => {
-        e.preventDefault()
-        let url = form.getAttribute("data-url")
-        let result = await setData(`/controllers/user/${url}`, form)
-        if (result["redirect"]) {
-            window.location.href = result["redirect"]
-        } else if (!result['error']) {
-            alert(false, result['message'])
-            await createTemp(`/templates/login.php`, ".tempWrap")
-            forms()
-            buttons()
-        } else {
-            alert(result['error'], result['message'])
-        }
+const results = async (url, form, result) => {
+    if (result["redirect"]) {
+        window.location.href = result["redirect"]
+    } else if (!result['error']) {
+        alert(false, result['message'])
+        await createTemp(`/templates/login.php`, ".tempWrap")
+        forms(results)
+        buttons()
+    } else {
+        alert(result['error'], result['message'])
     }
 }

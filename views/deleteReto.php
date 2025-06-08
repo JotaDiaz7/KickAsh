@@ -1,6 +1,6 @@
 <div class="popupInfo flex">
     <div class="popupImgWrap center">
-        <img src="/media/logo/main.svg" alt="Pregunta logo" title="Pregunta logo">
+        <img src="/media/logo/error.svg" alt="Pregunta logo" title="Pregunta logo">
     </div>
     <div class="center popupTextWrap">
         <p class="tc">

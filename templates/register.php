@@ -1,4 +1,4 @@
-<form data-url="registro.php">
+<form data-url="/controllers/user/registro.php">
     <h3>Para menos humos...</h3>
     <div class="inputWrap">
         <label for="userR">Nombre de usuario</label>
@@ -29,7 +29,14 @@
             </a>
         </label>
     </div>
-    <input type="submit" class="button" value="Regístrate" />
+    <div class="buttonWrap">
+        <div class="loading-dots d-n">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <input type="submit" class="button" value="Regístrate" />
+    </div>
 </form>
 <div class="toggleWrap tc">
     <button class="toggleForm" data-temp="login.php">¿Ya tienes una cuenta? !Inicia sesión!</button>

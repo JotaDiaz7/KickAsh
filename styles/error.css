@@ -1,0 +1,56 @@
+main {
+    min-height: 75vh;
+}
+
+.wrapper {
+    width: 100%;
+    padding-top: 25px;
+}
+
+.wrapper img {
+    width: 200px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 1.2em;
+
+}
+
+@media (min-width:768px) {
+    main {
+        height: 75vh;
+    }
+
+    h1 {
+        font-size: 1.7em;
+    }
+
+    .wrapper img {
+        width: 300px;
+    }
+
+}
+
+@media (min-width:1000px) {
+
+    .wrapper {
+        width: 50%;
+        padding-top: 100px;
+    }
+
+}
+
+@media (min-width:1600px) {
+    main {
+        height: 80vh;
+    }
+
+    .wrapper img {
+        width: 400px;
+    }
+}

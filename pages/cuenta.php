@@ -17,6 +17,7 @@ require_once '../controllers/followers/controller.php';
     <?php include_once '../structure/head.php' ?>
     <link rel="stylesheet" href="/styles/cuenta.css">
     <script type="module" src="/js/cuenta.js"></script>
+    <meta name="robots" content="noindex, nofollow">
     <title>KickAsh</title>
 </head>
 
@@ -26,11 +27,13 @@ require_once '../controllers/followers/controller.php';
         <main>
             <?php
             checkers($con, $idUser, $rolUser);
-
             alert(null, '') ?>
         </main>
         <?php include_once '../structure/footer.php' ?>
     </section>
+    <?php
+    if (!empty($logroC)) include_once '../templates/popup.php'
+    ?>
 </body>
 
 </html>

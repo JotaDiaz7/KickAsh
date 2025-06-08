@@ -192,10 +192,10 @@ export const buttonFollow = () => {
                     button.setAttribute("data-follow", follow == 0 ? 1 : 0)
 
                     let followers = document.getElementById("followers")
-                    if(followers) followers.textContent = result["followers"]
+                    if (followers) followers.textContent = result["followers"]
 
                     let follows = document.getElementById("follows")
-                    if(follows) follows.textContent = result["follows"]
+                    if (follows) follows.textContent = result["follows"]
 
                 }
             }
@@ -213,9 +213,33 @@ export const search = (callback) => {
             e.preventDefault()
             let value = search.value
             if (!value.length) window.location.reload()
-    
+
             let result = await getData(`${url}?search=${value}&type=${type}`)
             callback(result)
         }
     }
+}
+
+export const forms = (callback) => {
+    const forms = document.querySelectorAll("form")
+
+    forms.forEach(form => {
+        const loadingDots = form.querySelector(".loading-dots")
+        const submitButton = form.querySelector(".button")
+
+        if (form) {
+            const url = form.getAttribute("data-url")
+            form.onsubmit = async e => {
+                e.preventDefault()
+                loadingDots.classList.remove("d-n")
+                submitButton.classList.add("d-n")
+
+                let result = await setData(url, form)
+                loadingDots.classList.add("d-n")
+                submitButton.classList.remove("d-n")
+
+                callback(url, form, result)
+            }
+        }
+    })
 }

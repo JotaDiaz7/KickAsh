@@ -6,12 +6,12 @@ $followers = $modelF->countFollowers($con, $id);
 $follows = $modelF->countFollows($con, $id);
 
 ?>
-<div class="second flex between">
-    <div class="infoWrap flex g2">
+<div class="second flex between c-rm">
+    <div class="infoWrap flex g2 alignCenter">
         <div class="imgWrap">
             <img src="<?= isset($data['img']) && !empty($data['img']) ? '/media/users/' . $data['img'] : '/media/logo/main.svg' ?>" alt="Imagen usuario" title="Imagen usuario">
         </div>
-        <div class="dataWrap">
+        <div class="dataWrap c-r">
             <h3><?= $id ?> </h3>
             <div class="flex g5">
                 <div>

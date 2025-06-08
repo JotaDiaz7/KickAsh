@@ -4,13 +4,13 @@ class UsersModel
     //Función para el loginpublic function login($con, $user, $password)
     public function login($con, $user, $password)
     {
-        $sql = "SELECT id, rol, `password` FROM users WHERE (email = :user OR id = :user) AND activo = 1";
+        $sql = "SELECT id, email, rol, `password` FROM users WHERE (email = :user OR id = :user) AND activo = 1";
         try {
             $stmt = $con->prepare($sql);
             $stmt->execute([':user' => $user]);
             $resp = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($resp && password_verify($password, $resp['password'])) {
-                $_SESSION['user'] = ["id" => $resp['id'], "rol" => $resp['rol']];
+                $_SESSION['user'] = ["id" => $resp['id'], "rol" => $resp['rol'], "email" => $resp['email']];
                 return true;
             } else {
                 return false;

@@ -29,6 +29,7 @@ function checkRetos($con, $idUser)
     $modelR = new RetosModel;
     require_once '../models/historical.php';
     $modelH = new HistModel;
+    global $logroC;
 
     // Vamos a comprobar las rachas
     $rachas = $modelH->getLastRegister($con, $idUser);
@@ -44,7 +45,11 @@ function checkRetos($con, $idUser)
                 require_once '../models/users.php';
                 $modelU = new UsersModel;
                 $podium = $modelU->getUserPodiumPosition($con, $idUser);
-                if ($podium <= $reto['podium'] || $reto['podium'] == 0) $modelR->registrarLogro($con, $idUser, $reto['id']);
+                if ($podium <= $reto['podium'] || $reto['podium'] == 0) {
+                    $modelR->registrarLogro($con, $idUser, $reto['id']);
+                    require_once '../config/PHPMailer/mails/logro.php';
+                    $logroC = $reto['id'];
+                }
             }
         }
     }
@@ -68,4 +73,29 @@ function getRetoUser($con, $id, $idUser)
         exit;
     }
     include_once '../views/retoUser.php';
+}
+
+function getRetosNoUser($con, $idUser)
+{
+    require_once '../models/retos.php';
+    $modelR = new RetosModel;
+    $data = $modelR->getRetosNoUser($con, $idUser);
+    include_once '../views/retosUser.php';
+}
+
+function popupLogro($con, $id)
+{
+    require_once '../models/retos.php';
+    $modelR = new RetosModel;
+    $data = $modelR->getReto($con, $id);
+
+    include_once '../views/popupLogro.php';
+}
+
+function countRetosUser($con, $idUser)
+{
+    require_once '../models/retos.php';
+    $modelR = new RetosModel;
+    $data = $modelR->countRetosUser($con, $idUser);
+    return $data;
 }

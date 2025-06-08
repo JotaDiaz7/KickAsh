@@ -23,6 +23,7 @@ $id = $_GET["id"];
     <link rel="stylesheet" href="/styles/usuario.css">
     <link rel="stylesheet" href="/styles/main-usuario.css">
     <script type="module" src="/js/usuario.js"></script>
+    <meta name="robots" content="noindex, nofollow">
     <title>KickAsh</title>
 </head>
 

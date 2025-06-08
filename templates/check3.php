@@ -1,10 +1,10 @@
-<div class="mainWrap center">
+<div class="mainWrap c-r center">
     <div class="logoWrap center">
-    <img src="/media/logo/main.svg" alt="Happy logo" title="Happy logo">
+        <img src="/media/logo/happy.svg" alt="Happy logo" title="Happy logo">
     </div>
     <div class="infoWrap ">
         <h1>¡Y ya por último!</h1>
-        <form id="checkForm" data-controller="infoCig2">
+        <form data-url="/controllers/user/infoCig2.php">
             <p>Más o menos, ¿cuántos años llevas fumando?</p>
             <p>*En caso de llevar menos de un año, introduce 1.</p>
             <div class="inputWrap">
@@ -17,6 +17,11 @@
                 <input type="text" name="ncigs" id="ncigs" maxlength="3" />
             </div>
             <div class="buttonWrap">
+                <div class="loading-dots d-n">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <input type="submit" class="button" value="Guardar y finalizar" />
             </div>
         </form>

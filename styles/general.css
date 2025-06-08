@@ -68,7 +68,7 @@ button {
 }
 
 .d-n {
-  display: none;
+  display: none !important;
 }
 
 .tc {
@@ -111,10 +111,6 @@ input[type="date"] {
   align-items: center;
 }
 
-.column {
-  flex-direction: column;
-}
-
 .between {
   justify-content: space-between;
 }
@@ -154,6 +150,31 @@ input[type="date"] {
 
 .g5 {
   gap: 50px;
+}
+
+/*Flex direction*/
+.column {
+  flex-direction: column;
+}
+
+.c-rm {
+  flex-direction: column;
+}
+
+.c-r {
+  flex-direction: column;
+}
+
+.r-c {
+  flex-direction: row;
+}
+
+.r-cm {
+  flex-direction: row;
+}
+
+.c-r-c {
+  flex-direction: column;
 }
 
 /* Inputs */
@@ -207,6 +228,15 @@ input:focus {
   border: none;
   box-shadow: 3px 4px 2px #595250;
   text-align: center;
+}
+
+.buttonsWrap {
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.selec {
+    border-bottom: 3px solid var(--thirdColor);
 }
 
 /* Checkbox */
@@ -315,7 +345,6 @@ input:focus {
   padding: 5px 15px;
   box-shadow: 1px 1px 2px var(--fontColor);
   border-radius: 20px;
-
 }
 
 /*Search*/
@@ -332,6 +361,52 @@ input:focus {
   background: transparent !important;
   border: none;
   font-size: 1em;
+}
+
+/*Loading dots*/
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: 50px;
+}
+
+.loading-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(1) {
+  background-color: var(--mainColor);
+  animation-delay: 0s;
+}
+
+.loading-dots span:nth-child(2) {
+  background-color: #f2b1c5;
+  animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+  background-color: var(--thirdColor);
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
 }
 
 @media (max-width:768px) {
@@ -376,6 +451,18 @@ input:focus {
   .searchWrap {
     width: 250px;
   }
+
+  .c-rm {
+    flex-direction: row;
+  }
+
+  .r-cm {
+    flex-direction: column;
+  }
+
+  .c-r-c {
+    flex-direction: row;
+  }
 }
 
 @media (min-width:1000px) {
@@ -395,6 +482,18 @@ input:focus {
   .inputWrap {
     margin-top: 10px;
     margin-bottom: 15px;
+  }
+
+  .c-r {
+    flex-direction: row;
+  }
+
+  .r-c {
+    flex-direction: column;
+  }
+
+  .c-r-c {
+    flex-direction: column;
   }
 
 }

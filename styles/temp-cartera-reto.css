@@ -1,6 +1,8 @@
-.tempWrap, .tempImgWrap{
+.tempWrap,
+.tempImgWrap {
     padding: 20px;
 }
+
 .tempImgWrap img {
     width: 200px;
 }
@@ -26,17 +28,25 @@
     color: var(--success);
 }
 
-.desR{
+.desR {
     color: var(--error);
 }
 
-@media (min-width:768px) {
+/*Retos*/
+.retos {
+    padding: 20px;
+}
 
+.retos img {
+    width: 100px;
+}
+
+@media (min-width:768px) {
     .tempWrap {
         display: flex;
-        flex-direction: column;
         justify-content: center;
     }
+
     .tempImgWrap img {
         width: 300px;
     }
@@ -47,10 +57,19 @@
         display: block;
         min-width: 450px;
     }
-    .tempWrap, .tempImgWrap{
+
+    .tempWrap,
+    .tempImgWrap {
         padding: 0px;
+    }
+
+    .tempImgWrap img {
+        width: 320px;
     }
 }
 
 @media (min-width:1600px) {
+    .tempImgWrap img {
+        width: 350px;
+    }
 }

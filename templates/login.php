@@ -1,4 +1,4 @@
-<form data-url="login.php">
+<form data-url="/controllers/user/login.php">
     <h3>Para menos humos...</h3>
     <div class="inputWrap">
         <label for="userL">Nombre de usuario o correo electrónico</label>
@@ -18,7 +18,14 @@
             Recuérdame
         </label>
     </div>
-    <input type="submit" class="button" value="Inicia sesión" />
+    <div class="buttonWrap">
+        <div class="loading-dots d-n">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <input type="submit" class="button" value="Inicia sesión" />
+    </div>
 </form>
 <div class="toggleWrap tc">
     <button class="toggleForm" data-temp="register.php">¿Aún no tienes cuenta? ¡Regístrate!</button>

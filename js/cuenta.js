@@ -1,37 +1,28 @@
-import { alert, setData, getData, createTemp, changeImg, footer, buttonFollow, search, changeImgInput } from "./utils.js"
+import { alert, getData, createTemp, footer, buttonFollow, search, changeImgInput, forms } from "./utils.js"
 
 document.addEventListener("DOMContentLoaded", function () {
-    formsCheck()
     buttonsCig()
-    changeImg()
     datesR()
-    imgState()
     footer()
     buttonFollow()
     search(printSearch)
     deleteFollower()
+    forms(results)
 })
 
-const formsCheck = () => {
-    const form = document.getElementById("checkForm")
-
-    if (form) {
-        const data = form.getAttribute("data-controller")
-        form.onsubmit = async e => {
-            e.preventDefault()
-            let result = await setData(`/controllers/user/${data}.php`, form)
-            if (result['temp']) {
-                document.querySelector("main").classList.add("fade-out")
-                await new Promise(resolve => setTimeout(resolve, 400)) // Esperamos el fade-out antes de cambiar el contenido
-                await createTemp(result['temp'], "main")
-                formsCheck()
-                changeImgInput()
-                changeImg()
-                setTimeout(() => document.querySelector("main").classList.remove("fade-out"), 400)
-            } else {
-                alert(result['error'], result['message'])
-            }
-        }
+const results = async (url, form, result) => {
+    if (!result["error"] && url.includes("changeImgUser")) {
+        alert(result['error'], result['message'])
+        setTimeout(() => window.location.href = "/cuenta", 3000)
+    }else if (result['temp']) {
+        document.querySelector("main").classList.add("fade-out")
+        await new Promise(resolve => setTimeout(resolve, 400)) // Esperamos el fade-out antes de cambiar el contenido
+        await createTemp(result['temp'], "main")
+        forms(results)
+        changeImgInput()
+        setTimeout(() => document.querySelector("main").classList.remove("fade-out"), 400)
+    } else {
+        alert(result['error'], result['message'])
     }
 }
 
@@ -69,27 +60,6 @@ const datesR = () => {
     })
 }
 
-const imgState = () => {
-    const states = document.querySelectorAll(".stateC")
-    let img = document.getElementById("imgState")
-    let result = 0
-
-    if (img) {
-        states.forEach(state => result += parseFloat(state.textContent))
-
-        if (result < 5) {
-            img.src = "/media/logo/main.svg"
-        } else if (result > 5 && result <= 40) {
-            img.src = "/media/logo/regular.svg"
-        } else if (result > 40 && result <= 70) {
-            img.src = "/media/logo/bad.svg"
-        } else if (result > 70) {
-            img.src = "/media/logo/verybad.svg"
-        }
-    }
-
-}
-
 const deleteFollower = () => {
     const buttonF = document.querySelectorAll(".buttonFer")
 
@@ -112,13 +82,13 @@ const printSearch = (data) => {
     const search = document.getElementById("search")
     const type = search.getAttribute("data-type")
 
-    if(type === "follow") tempFollow(data, tbody)
-    if(type === "follower") tempFollower(data, tbody)
+    if (type == "follows") tempFollow(data, tbody)
+    if (type == "follower") tempFollower(data, tbody)
 }
 
-const tempFollow = (data) => {
+const tempFollow = (data, body) => {
     data.forEach(item => {
-        tbody.innerHTML += `
+        body.innerHTML += `
         <div class="tr">
             <a class="tdF flex g1 alignCenter" href="/usuario?id=${item['id']}">
                 <span class="imgT">

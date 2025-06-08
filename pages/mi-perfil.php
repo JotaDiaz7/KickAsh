@@ -13,25 +13,26 @@ seguridad(true, -1);
     <?php include_once '../structure/head.php' ?>
     <link rel="stylesheet" href="/styles/mi-perfil.css">
     <script type="module" src="/js/mi-perfil.js"></script>
+    <meta name="robots" content="noindex, nofollow">
     <title>KickAsh</title>
 </head>
 
 <body>
     <section id="root">
         <?php include_once '../structure/header.php' ?>
-        <main>
-            <?php if(isset($_GET['delete']) && $rolUser == 0){
+        <main class="relative">
+            <?php if (isset($_GET['delete']) && $rolUser == 0) {
                 include_once '../templates/delete.php';
-            }else if (isset($_GET['img'])) { ?>
-                <h1>Cambiar imagen</h1>
+            } else if (isset($_GET['img'])) { ?>
+                <h1 class="tc">Cambiar imagen</h1>
             <?php imgUser($con, $idUser, false);
             } else { ?>
                 <h1>Mi perfil</h1>
-                <div class="mainWrap flex between">
-                    <div class="infoWrap flex">
+                <div class="mainWrap flex between c-r">
+                    <div class="infoWrap flex around wrap">
                         <?php if (!isset($_GET['data'])) { ?>
                             <?php dataUser($con, $idUser) ?>
-                            <form class="form" data-controller="password">
+                            <form class="form"  data-url="/controllers/user/password.php">
                                 <h3>Contraseña</h3>
                                 <div class="inputWrap flex between">
                                     <label for="pass">Nueva contraseña</label>
@@ -48,6 +49,11 @@ seguridad(true, -1);
                                     </button>
                                 </div>
                                 <div class="flex end">
+                                    <div class="loading-dots d-n">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
                                     <input type="submit" class="button" value="Actualizar" />
                                 </div>
                             </form>
@@ -55,7 +61,7 @@ seguridad(true, -1);
                             dataUser2($con, $idUser);
                         } ?>
                     </div>
-                    <aside class="flex between">
+                    <aside class="flex between r-c">
                         <nav>
                             <ul>
                                 <li class="d-nm">
